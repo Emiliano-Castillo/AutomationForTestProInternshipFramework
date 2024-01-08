@@ -3,9 +3,12 @@
 
 <suite name="Sprint1">
     <parameter name="BaseURL" value="https://qa.koel.app/"/>
-    <test name="Internship" preserve-order="false">
+    <test name="LonginTests" preserve-order="false">
         <classes>
             <class name="tests.LoginTests"/>
+            <class name="tests.ProfileTests"/>
+            <class name="utils.DataProviders"/>
         </classes>
     </test>
 </suite>
+

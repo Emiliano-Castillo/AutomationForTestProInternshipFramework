@@ -1,21 +1,14 @@
 package tests;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.LoginPage;
+import utils.DataProviders;
 
 public class LoginTests extends BaseTest {
 
     LoginPage loginPage;
 
-    @DataProvider(name = "validLoginData")
-    public Object[][] loginData() {
-        return new Object[][] {
-                {"emiliano.castillo@testpro.io","Et!@&eV!6K&bk6jLg@EhqQW"}
-        };
-    }
-
-    @Test(description = "This test is for valid Login", dataProvider = "validLoginData")
+    @Test(description = "This test is for valid Login", dataProvider = "loginData", dataProviderClass = DataProviders.class)
     public void loginWithValidCredentials(String email, String password) {
         loginPage = new LoginPage(driver);
 
@@ -23,14 +16,7 @@ public class LoginTests extends BaseTest {
                  .verifyLoginSuccessful();
     }
 
-    @DataProvider(name = "registrationData")
-    public Object[][] registerData() {
-        return new Object[][] {
-                {"emiliano.castillo+1234@testpro.io"}
-        };
-    }
-
-    @Test(description = "This test registering new user", dataProvider = "registrationData")
+    @Test(description = "This test registering new user", dataProvider = "registrationData", dataProviderClass = LoginPage.class)
     public void registerNewUser (String email) {
         loginPage = new LoginPage(driver);
 

@@ -5,6 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.ITestContext;
+import org.testng.annotations.DataProvider;
+
+import java.lang.reflect.Method;
 
 public class LoginPage extends BasePage {
 
@@ -23,38 +27,38 @@ public class LoginPage extends BasePage {
 
     //////////////////METHODS\\\\\\\\\\\\\\\\\\\\\\\\\
 
-    public void enterEmail (String email) {
+    public void enterEmail(String email) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput)).sendKeys(email);
     }
 
-    public void enterPassword (String password) {
+    public void enterPassword(String password) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput)).sendKeys(password);
     }
 
-    public void clickLoginBtn () {
+    public void clickLoginBtn() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginBtn)).click();
     }
 
-    public LoginPage userLogin (String email, String password) {
+    public LoginPage userLogin(String email, String password) {
         enterEmail(email);
         enterPassword(password);
         clickLoginBtn();
         return this;
     }
 
-    public void registration () {
+    public void registration() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(registerBtn)).click();
     }
 
-    public void enterRegisterEmail (String email) {
+    public void enterRegisterEmail(String email) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(registerEmailInput)).sendKeys(email);
     }
 
-    public void clickRegisterSubmit () {
+    public void clickRegisterSubmit() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(registerSubBtn)).click();
     }
 
-    public LoginPage newUserRegistration (String email) {
+    public LoginPage newUserRegistration(String email) {
         registration();
         enterRegisterEmail(email);
         clickRegisterSubmit();
@@ -68,8 +72,50 @@ public class LoginPage extends BasePage {
         Assert.assertTrue(avatar.isDisplayed());
     }
 
-    public void verifyRegistrationSuccessful () {
+    public void verifyRegistrationSuccessful() {
         WebElement messageSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".login-wrapper .messages")));
         Assert.assertTrue(messageSuccess.isDisplayed());
+    }
+
+    /////////////////DATA PROVIDERS\\\\\\\\\\\\\\\\\\\\
+
+//    @DataProvider(name = "loginData")
+//    public static Object[][] getData() {
+//        return new Object[][]{
+//                {"emiliano.castillo@testpro.io", "Emz1234!!!!"}
+//        };
+//    }
+//    @DataProvider(name = "updatePassword")
+//    public static Object[][] get() {
+//        return new Object[][]{
+//                {"Emz1234!!!!","Emz1234!!!!2"}
+//        };
+//    }
+        //////////////////////////
+
+//        String testName= it.getName();
+//
+//        if(testName.equals("LonginTests")) {
+//            return loginData;
+//        }else if(testName.equals("UpdatePassword")){
+//            return updatePasswordData;
+//        }else
+//            return new Object[][] {{"No test data present"}, {"No test Data present"}};
+
+        ///////////////////////
+//        String methodName= method.getName();
+//        if(methodName.equals("loginWithValidCredentials")) {
+//            return loginData;
+//        }else if (methodName.equals("userShouldBeAbleToUpdatePasswordFromProfilePage")) {
+//            return updatePasswordData;
+//        }else {
+//            return new Object[][] {{"No test data present"}, {"No test Data present"}};
+        //////////////////////////
+
+    @DataProvider(name = "registrationData")
+    public static Object[][] newRegisterData() {
+        return new Object[][] {
+                {"emiliano.castillo@testpro.io"}
+        };
     }
 }
