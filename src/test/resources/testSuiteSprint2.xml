@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Sprint1">
+<suite name="Sprint2">
     <parameter name="BaseURL" value="https://qa.koel.app/"/>
-    <test name="Longin Tests" preserve-order="false">
+    <test name="Search Tests" preserve-order="false">
         <classes>
-            <class name="tests.LoginTests"/>
-            <class name="tests.ProfileTests"/>
+            <class name="tests.SearchTests"/>
         </classes>
     </test>
 </suite>
-
