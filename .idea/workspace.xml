@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c00f9f07-028a-4b6e-b4aa-947b31009f44" name="Changes" comment="Created loginPage objects and simple login test and registration test using dataProviders.">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pageObjects/ProfilePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/ProfileTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/utils/DataProviders.java" afterDir="false" />
+    <list default="true" id="c00f9f07-028a-4b6e-b4aa-947b31009f44" name="Changes" comment="Created ProfileTest was able to generate random password for this test case. still working on how to change currentPass to new password with having to hard code it">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pageObjects/SearchPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObjects/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObjects/ProfilePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/testNG.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testNG.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/ProfileTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/ProfileTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/DataProviders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utils/DataProviders.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,9 +215,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ProfileTests.userShouldBeAbleToUpdatePasswordFromProfilePage" />
+        <item itemvalue="Gradle.LoginTests.loginWithValidCredentials" />
         <item itemvalue="Gradle.LoginTests.registerNewUser" />
         <item itemvalue="Gradle.DataProviders.testPassword" />
-        <item itemvalue="Gradle.LoginTests.loginWithValidCredentials" />
         <item itemvalue="Gradle.LoginTests" />
       </list>
     </recent_temporary>
@@ -265,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704577887365</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Created ProfileTest was able to generate random password for this test case. still working on how to change currentPass to new password with having to hard code it">
+      <option name="closed" value="true" />
+      <created>1704690415169</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704690415169</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,6 +291,7 @@
     <MESSAGE value="BaseTest setup" />
     <MESSAGE value="BasePage setup also added a simple login test to make sure test are executing." />
     <MESSAGE value="Created loginPage objects and simple login test and registration test using dataProviders." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created loginPage objects and simple login test and registration test using dataProviders." />
+    <MESSAGE value="Created ProfileTest was able to generate random password for this test case. still working on how to change currentPass to new password with having to hard code it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created ProfileTest was able to generate random password for this test case. still working on how to change currentPass to new password with having to hard code it" />
   </component>
 </project>

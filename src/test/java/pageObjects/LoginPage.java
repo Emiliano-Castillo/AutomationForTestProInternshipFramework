@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import org.testng.ITestContext;
-import org.testng.annotations.DataProvider;
-
-import java.lang.reflect.Method;
 
 public class LoginPage extends BasePage {
 
@@ -76,23 +72,6 @@ public class LoginPage extends BasePage {
         WebElement messageSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".login-wrapper .messages")));
         Assert.assertTrue(messageSuccess.isDisplayed());
     }
-
-    /////////////////DATA PROVIDERS\\\\\\\\\\\\\\\\\\\\
-
-//    @DataProvider(name = "loginData")
-//    public static Object[][] getData() {
-//        return new Object[][]{
-//                {"emiliano.castillo@testpro.io", "Emz1234!!!!"}
-//        };
-//    }
-//    @DataProvider(name = "updatePassword")
-//    public static Object[][] get() {
-//        return new Object[][]{
-//                {"Emz1234!!!!","Emz1234!!!!2"}
-//        };
-//    }
-        //////////////////////////
-
 //        String testName= it.getName();
 //
 //        if(testName.equals("LonginTests")) {
@@ -111,11 +90,4 @@ public class LoginPage extends BasePage {
 //        }else {
 //            return new Object[][] {{"No test data present"}, {"No test Data present"}};
         //////////////////////////
-
-    @DataProvider(name = "registrationData")
-    public static Object[][] newRegisterData() {
-        return new Object[][] {
-                {"emiliano.castillo@testpro.io"}
-        };
-    }
 }

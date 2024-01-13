@@ -1,8 +1,5 @@
 package utils;
-
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
 import java.security.SecureRandom;
 
 public class DataProviders {
@@ -10,20 +7,26 @@ public class DataProviders {
     @DataProvider(name = "loginData")
     public static Object[][] getLoginData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "eqwb5V&13,#xU"}
+                {"emiliano.castillo@testpro.io", "|P#S'T.d(rS'5"}
+        };
+    }
+    @DataProvider(name = "registrationData")
+    public static Object[][] newRegisterData() {
+        return new Object[][] {
+                {"emiliano.castillo@testpro.io"}
         };
     }
     @DataProvider(name = "profileData")
     public Object[][] getGeneratePassword() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "eqwb5V&13,#xU", generateRandomPassword(13)}
+                {"emiliano.castillo@testpro.io", "|P#S'T.d(rS'5", generateRandomPassword(13)}
         };
     }
     @DataProvider(name = "randomPasswordGenerator")
     public Object[][] generatePassword() {
 
-        int numberOfPasswords = 1;  // Adjust as needed
-        int passwordLength = 10;    // Adjust as needed
+        int numberOfPasswords = 1;
+        int passwordLength = 10;
 
         Object[][] data = new Object[numberOfPasswords][1];
 
@@ -52,10 +55,5 @@ public class DataProviders {
             password.append(ALL_CHAR.charAt(randomIndex));
         }
         return password.toString();
-    }
-    @Test(dataProvider = "randomPasswordGenerator")
-    public void testPassword(String newPassword) {
-        System.out.println("New Password: " + newPassword);
-        // Your test logic goes here
     }
 }

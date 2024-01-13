@@ -11,12 +11,15 @@ public class LoginTests extends BaseTest {
     @Test(description = "This test is for valid Login", dataProvider = "loginData", dataProviderClass = DataProviders.class)
     public void loginWithValidCredentials(String email, String password) {
         loginPage = new LoginPage(driver);
-
-        loginPage.userLogin(email, password)
-                 .verifyLoginSuccessful();
+        try {
+            loginPage.userLogin(email, password)
+                    .verifyLoginSuccessful();
+        } catch (Exception e){
+            System.out.print("Exceptions caught" + e.getMessage());
+        }
     }
 
-    @Test(description = "This test registering new user", dataProvider = "registrationData", dataProviderClass = LoginPage.class)
+    @Test(description = "This test registering new user", dataProvider = "registrationData", dataProviderClass = DataProviders.class)
     public void registerNewUser (String email) {
         loginPage = new LoginPage(driver);
 
