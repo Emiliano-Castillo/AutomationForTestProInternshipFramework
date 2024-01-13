@@ -7,7 +7,7 @@ public class DataProviders {
     @DataProvider(name = "loginData")
     public static Object[][] getLoginData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "|P#S'T.d(rS'5"}
+                {"emiliano.castillo@testpro.io", "Emz1234!!"}
         };
     }
     @DataProvider(name = "registrationData")
@@ -19,7 +19,7 @@ public class DataProviders {
     @DataProvider(name = "profileData")
     public Object[][] getGeneratePassword() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "|P#S'T.d(rS'5", generateRandomPassword(13)}
+                {"emiliano.castillo@testpro.io", "Emz1234!!", generateRandomPassword(13)}
         };
     }
     @DataProvider(name = "randomPasswordGenerator")
@@ -55,5 +55,49 @@ public class DataProviders {
             password.append(ALL_CHAR.charAt(randomIndex));
         }
         return password.toString();
+    }
+
+    @DataProvider(name = "searchData")
+    public static Object[][] getSearchData() {
+        return new Object[][]{
+                {"emiliano.castillo@testpro.io", "Emz1234!!", "Pluto"}
+        };
+    }
+
+    @DataProvider(name = "searchArtistData")
+    public static Object[][] getSearchArtistData() {
+        return new Object[][]{
+                {"emiliano.castillo@testpro.io", "Emz1234!!", "Grav"}
+        };
+    }
+
+    @DataProvider(name = "searchNonExistingSongNameData")
+    public static Object[][] getNonExistingSongNameData() {
+        return new Object[][]{
+                {"emiliano.castillo@testpro.io", "Emz1234!!", "We are family"}
+        };
+    }
+
+    @DataProvider(name = "searchWhiteSpacesData")
+    public static Object[][] getWhiteSpacesData() {
+        return new Object[][]{
+                {"emiliano.castillo@testpro.io", "Emz1234!!", "Pluto    "},
+                {"emiliano.castillo@testpro.io", "Emz1234!!", "     Pluto"}
+        };
+    }
+
+    @DataProvider(name = "searchCaseSensitiveData")
+    public static Object[][] getCaseSensitiveData() {
+        return new Object[][]{
+                {"emiliano.castillo@testpro.io", "Emz1234!!", "pluto"},
+                {"emiliano.castillo@testpro.io", "Emz1234!!", "PLUTO"}
+        };
+    }
+
+    @DataProvider(name = "searchPressingESCKeyData")
+    public static Object[][] getClearingData() {
+        return new Object[][]{
+                {"emiliano.castillo@testpro.io", "Emz1234!!", "Pluto"}
+        };
     }
 }

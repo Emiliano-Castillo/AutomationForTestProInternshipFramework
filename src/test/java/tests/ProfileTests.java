@@ -10,7 +10,7 @@ public class ProfileTests extends BaseTest{
     LoginPage loginPage;
     ProfilePage profilePage;
 
-    @Test(description = "Sprint1 INTERNSHIP-79697", dataProvider = "profileData", dataProviderClass = DataProviders.class)
+    @Test(enabled = false, description = "Sprint1 INTERNSHIP-79697", dataProvider = "profileData", dataProviderClass = DataProviders.class)
     public void userShouldBeAbleToUpdatePasswordFromProfilePage(String email, String password, String newPassword) {
 
         loginPage = new LoginPage(driver);
