@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 public class ProfilePage extends BasePage{
 
+    //Constructor
     public ProfilePage(WebDriver driver) {
         super(driver);
     }
@@ -50,21 +51,20 @@ public class ProfilePage extends BasePage{
         return this;
     }
 
-    public ProfilePage enterNewPass (String newPassword) {
+    public void enterNewPass (String newPassword) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(newPassInput)).sendKeys(newPassword);
-        return this;
     }
 
     public ProfilePage clickSaveBtn () {
         wait.until(ExpectedConditions.visibilityOfElementLocated(saveBtn)).click();
         return this;
     }
-//    public ProfilePage updatePassword (String password) {
-//        enterCurrentPass(password);
-//        enterNewPass();
-//        clickSaveBtn();
-//        return this;
-//    }
+    //This method will input current and new password in profile page
+    public void updatePassword (String password, String newPassword) {
+        enterCurrentPass(password);
+        enterNewPass(newPassword);
+        clickSaveBtn();
+    }
 
     /////////////////ASSERTIONS\\\\\\\\\\\\\\\\\\\\\\
 
@@ -72,13 +72,4 @@ public class ProfilePage extends BasePage{
         WebElement greenMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(updateProfileMessage));
         Assert.assertTrue(greenMessage.isDisplayed());
     }
-
-    /////////////////DATA PROVIDERS\\\\\\\\\\\\\\\\\\\\
-
-//    @DataProvider(name = "updatePasswordSuccessfully")
-//    public static Object[][] profileData() {
-//        return new Object[][] {
-//                {"Emz1234!!!!","Emz1234!!!!1",}
-//        };
-//    }
 }

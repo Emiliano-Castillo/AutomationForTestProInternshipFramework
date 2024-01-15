@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 public class LoginPage extends BasePage {
 
+//Constructor
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -20,6 +21,8 @@ public class LoginPage extends BasePage {
     private final By registerBtn = By.cssSelector("a[href='registration']");
     private final By registerEmailInput = By.cssSelector("input[type='email']");
     private final By registerSubBtn = By.id("button");
+    private final By avatarImg = By.cssSelector("img.avatar");
+    private final By registrationMessage = By.cssSelector(".login-wrapper .messages");
 
     //////////////////METHODS\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -34,7 +37,7 @@ public class LoginPage extends BasePage {
     public void clickLoginBtn() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginBtn)).click();
     }
-
+    //This method will fill out login form and click Login
     public LoginPage userLogin(String email, String password) {
         enterEmail(email);
         enterPassword(password);
@@ -42,7 +45,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public void registration() {
+    public void registrationClick() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(registerBtn)).click();
     }
 
@@ -53,9 +56,9 @@ public class LoginPage extends BasePage {
     public void clickRegisterSubmit() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(registerSubBtn)).click();
     }
-
+    //This method will go fill out registration form and click submit
     public LoginPage newUserRegistration(String email) {
-        registration();
+        registrationClick();
         enterRegisterEmail(email);
         clickRegisterSubmit();
         return this;
@@ -64,30 +67,12 @@ public class LoginPage extends BasePage {
     /////////////////ASSERTIONS\\\\\\\\\\\\\\\\\\\\\\
 
     public void verifyLoginSuccessful() {
-        WebElement avatar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar")));
+        WebElement avatar = wait.until(ExpectedConditions.presenceOfElementLocated(avatarImg));
         Assert.assertTrue(avatar.isDisplayed());
     }
 
     public void verifyRegistrationSuccessful() {
-        WebElement messageSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".login-wrapper .messages")));
+        WebElement messageSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(registrationMessage));
         Assert.assertTrue(messageSuccess.isDisplayed());
     }
-//        String testName= it.getName();
-//
-//        if(testName.equals("LonginTests")) {
-//            return loginData;
-//        }else if(testName.equals("UpdatePassword")){
-//            return updatePasswordData;
-//        }else
-//            return new Object[][] {{"No test data present"}, {"No test Data present"}};
-
-        ///////////////////////
-//        String methodName= method.getName();
-//        if(methodName.equals("loginWithValidCredentials")) {
-//            return loginData;
-//        }else if (methodName.equals("userShouldBeAbleToUpdatePasswordFromProfilePage")) {
-//            return updatePasswordData;
-//        }else {
-//            return new Object[][] {{"No test data present"}, {"No test Data present"}};
-        //////////////////////////
 }

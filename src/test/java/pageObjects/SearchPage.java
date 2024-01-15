@@ -7,10 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import java.security.Key;
-
 public class SearchPage extends BasePage {
 
+    //Constructor
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -19,7 +18,6 @@ public class SearchPage extends BasePage {
 
     private final By searchField = By.cssSelector("input[type='Search']");
     private final By resultsPageForSongPluto = By.xpath("//strong[contains(text(),'Pluto')]");
-    private final By resultsPageForArtistGrav = By.xpath("//strong[contains(text(),'Grav')]");
     private final By resultDisplayedForSongsSection = By.cssSelector("section[class='songs'] article[data-test='song-card']");
     private final By resultDisplayedForArtistSection = By.cssSelector("section[class='artists'] article[data-test='artist-card']");
     private final By resultDisplayedForAlbumsSection = By.cssSelector("section[class='albums'] article[data-test='album-card']");

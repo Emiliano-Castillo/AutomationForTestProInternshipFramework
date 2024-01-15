@@ -19,8 +19,7 @@ public class ProfileTests extends BaseTest{
         loginPage.userLogin(email, password)
                  .verifyLoginSuccessful();
         profilePage.clickAvatar()
-                .enterCurrentPass(password)
-                .enterNewPass(newPassword);
+                   .updatePassword(password, newPassword);
         System.out.println("New Password: " + newPassword);
         profilePage.clickSaveBtn()
                    .verifySuccessfulMessageUpdate();

@@ -7,21 +7,24 @@ public class DataProviders {
     @DataProvider(name = "loginData")
     public static Object[][] getLoginData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "Emz1234!!"}
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a"}
         };
     }
+
     @DataProvider(name = "registrationData")
     public static Object[][] newRegisterData() {
         return new Object[][] {
-                {"emiliano.castillo@testpro.io"}
+                {"emiliano.castillo+123@testpro.io"}
         };
     }
+
     @DataProvider(name = "profileData")
     public Object[][] getGeneratePassword() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "Emz1234!!", generateRandomPassword(13)}
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", generateRandomPassword(13)}
         };
     }
+
     @DataProvider(name = "randomPasswordGenerator")
     public Object[][] generatePassword() {
 
@@ -60,29 +63,29 @@ public class DataProviders {
     @DataProvider(name = "searchData")
     public static Object[][] getSearchData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "Emz1234!!", "Pluto"}
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", "Pluto"}
         };
     }
 
     @DataProvider(name = "searchArtistData")
     public static Object[][] getSearchArtistData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "Emz1234!!", "Grav"}
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", "Grav"}
         };
     }
 
     @DataProvider(name = "searchNonExistingSongNameData")
     public static Object[][] getNonExistingSongNameData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "Emz1234!!", "We are family"}
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", "We are family"}
         };
     }
 
     @DataProvider(name = "searchWhiteSpacesData")
     public static Object[][] getWhiteSpacesData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "Emz1234!!", "Pluto    "},
-                {"emiliano.castillo@testpro.io", "Emz1234!!", "     Pluto"}
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", "Pluto    "},
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", "     Pluto"}
         };
     }
 
