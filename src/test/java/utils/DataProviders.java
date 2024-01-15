@@ -92,15 +92,15 @@ public class DataProviders {
     @DataProvider(name = "searchCaseSensitiveData")
     public static Object[][] getCaseSensitiveData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "Emz1234!!", "pluto"},
-                {"emiliano.castillo@testpro.io", "Emz1234!!", "PLUTO"}
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", "pluto"},
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", "PLUTO"}
         };
     }
 
     @DataProvider(name = "searchPressingESCKeyData")
     public static Object[][] getClearingData() {
         return new Object[][]{
-                {"emiliano.castillo@testpro.io", "Emz1234!!", "Pluto"}
+                {"emiliano.castillo@testpro.io", "DSs2hQ}Hfl|(a", "Pluto"}
         };
     }
 }
