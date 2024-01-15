@@ -85,7 +85,7 @@ public class SearchTests extends BaseTest{
                 .verifyLoginSuccessful();
         searchPage.searchSongPluto(Song);
         searchPage.verifyPlutoResultsMatchesSongSectionOnResultsPage();
-        Thread.sleep(1000);
+        Thread.sleep(1000);                   //Needed to put Thread.sleep or page wouldn't load fast enough to verify element is visible
         searchPage.clearSearchBarPressingEscKey();
         Thread.sleep(1000);
         searchPage.verifySongCardShouldBeEmpty();
