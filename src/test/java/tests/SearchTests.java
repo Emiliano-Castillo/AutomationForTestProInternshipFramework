@@ -5,6 +5,8 @@ import pageObjects.LoginPage;
 import pageObjects.SearchPage;
 import utils.DataProviders;
 
+import java.time.Duration;
+
 public class SearchTests extends BaseTest{
 
     LoginPage loginPage;
@@ -77,7 +79,7 @@ public class SearchTests extends BaseTest{
     }
 
     @Test(priority = 7, description = "JIRA Case- 80988. Test User can clear the search query with keyboard esc key and 'x' button", dataProvider = "searchPressingESCKeyData", dataProviderClass = DataProviders.class)
-    public void searchClearingSearchBar (String email, String password, String Song) throws InterruptedException {
+    public void searchClearingSearchBar (String email, String password, String Song) {
         loginPage = new LoginPage(driver);
         searchPage = new SearchPage(driver);
 
@@ -85,9 +87,8 @@ public class SearchTests extends BaseTest{
                 .verifyLoginSuccessful();
         searchPage.searchSongPluto(Song);
         searchPage.verifyPlutoResultsMatchesSongSectionOnResultsPage();
-        Thread.sleep(1000);                   //Needed to put Thread.sleep or page wouldn't load fast enough to verify element is visible
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         searchPage.clearSearchBarPressingEscKey();
-        Thread.sleep(1000);
         searchPage.verifySongCardShouldBeEmpty();
     }
 }
