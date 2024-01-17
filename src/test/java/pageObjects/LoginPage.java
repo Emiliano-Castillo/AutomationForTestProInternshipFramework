@@ -3,7 +3,10 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class LoginPage extends BasePage {
 
@@ -73,5 +76,11 @@ public class LoginPage extends BasePage {
     public void verifyRegistrationSuccessful() {
         WebElement messageSuccess = findElement(registrationMessage);
         Assert.assertTrue(messageSuccess.isDisplayed());
+    }
+
+    public void verifyLoginUrlIsVisible() {
+        String url = "https://qa.koel.app/";
+        boolean verify = wait.until(ExpectedConditions.urlMatches(url));
+        Assert.assertTrue(verify);
     }
 }
