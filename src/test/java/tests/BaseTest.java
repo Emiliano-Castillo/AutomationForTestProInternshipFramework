@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,6 +19,7 @@ public class BaseTest {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();

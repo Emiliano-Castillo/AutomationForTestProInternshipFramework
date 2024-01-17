@@ -5,12 +5,20 @@ import java.security.SecureRandom;
 public class DataProviders {
 
     static String currentEmail = "emiliano.castillo@testpro.io";
-    static String currentPassword = "R_p65>g|8t3o]";
+    static String currentPassword = "x]q}U&)2BH59O";
+    static String oldPassword = "R_p65>g|8t3o]";
 
     @DataProvider(name = "loginData")
     public static Object[][] getLoginData() {
         return new Object[][]{
                 {currentEmail, currentPassword}
+        };
+    }
+
+    @DataProvider(name = "oldPasswordLoginData")
+    public static Object[][] getOldPasswordData() {
+        return new Object[][]{
+                {currentEmail, oldPassword}
         };
     }
 
