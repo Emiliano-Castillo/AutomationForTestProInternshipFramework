@@ -12,8 +12,8 @@ public class LoginTests extends BaseTest {
     public void loginWithValidCredentials(String email, String password) {
         loginPage = new LoginPage(driver);
 
-            loginPage.userLogin(email, password)
-                    .verifyLoginSuccessful();
+        loginPage.userLogin(email, password)
+                 .verifyLoginSuccessful();
     }
 
     @Test(description = "This test registering new user", dataProvider = "registrationData", dataProviderClass = DataProviders.class)
