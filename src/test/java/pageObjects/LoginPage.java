@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class LoginPage extends BasePage {
@@ -27,15 +26,15 @@ public class LoginPage extends BasePage {
     //////////////////METHODS\\\\\\\\\\\\\\\\\\\\\\\\\
 
     public void enterEmail(String email) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput)).sendKeys(email);
+        findElement(emailInput).sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput)).sendKeys(password);
+        findElement(passwordInput).sendKeys(password);
     }
 
     public void clickLoginBtn() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(loginBtn)).click();
+        click(loginBtn);
     }
     //This method will fill out login form and click Login
     public LoginPage userLogin(String email, String password) {
@@ -46,15 +45,15 @@ public class LoginPage extends BasePage {
     }
 
     public void registrationClick() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(registerBtn)).click();
+        click(registerBtn);
     }
 
     public void enterRegisterEmail(String email) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(registerEmailInput)).sendKeys(email);
+        findElement(registerEmailInput).sendKeys(email);
     }
 
     public void clickRegisterSubmit() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(registerSubBtn)).click();
+        click(registerSubBtn);
     }
     //This method will go fill out registration form and click submit
     public LoginPage newUserRegistration(String email) {
@@ -67,12 +66,12 @@ public class LoginPage extends BasePage {
     /////////////////ASSERTIONS\\\\\\\\\\\\\\\\\\\\\\
 
     public void verifyLoginSuccessful() {
-        WebElement avatar = wait.until(ExpectedConditions.presenceOfElementLocated(avatarImg));
+        WebElement avatar = findElement(avatarImg);
         Assert.assertTrue(avatar.isDisplayed());
     }
 
     public void verifyRegistrationSuccessful() {
-        WebElement messageSuccess = wait.until(ExpectedConditions.visibilityOfElementLocated(registrationMessage));
+        WebElement messageSuccess = findElement(registrationMessage);
         Assert.assertTrue(messageSuccess.isDisplayed());
     }
 }

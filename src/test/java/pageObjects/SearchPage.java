@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class SearchPage extends BasePage {
@@ -27,35 +26,34 @@ public class SearchPage extends BasePage {
     //////////////////METHODS\\\\\\\\\\\\\\\\\\\\\\\\\
 
     public SearchPage searchSongPluto (String songName) {
-        WebElement pluto = wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
+        WebElement pluto = findElement(searchField);
         pluto.clear();
         pluto.sendKeys(songName);
         return this;
     }
 
     public SearchPage searchArtistGrav (String artistName) {
-        WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
+        WebElement search = findElement(searchField);
         search.clear();
         search.sendKeys(artistName);
         return this;
     }
 
     public SearchPage searchNonExistingSong (String songName) {
-        WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
+        WebElement search = findElement(searchField);
         search.clear();
         search.sendKeys(songName);
         return this;
     }
 
-    public SearchPage clearSearchBarPressingEscKey () {
-        WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
+    public void clearSearchBarPressingEscKey () {
+        WebElement search = findElement(searchField);
         search.click();
         actions.sendKeys(Keys.ESCAPE).perform();
-        return this;
     }
 
     public SearchPage clearSearchBarClickingX () {
-        WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
+        WebElement search = findElement(searchField);
         search.click();
         return this;
     }
@@ -67,32 +65,32 @@ public class SearchPage extends BasePage {
     }
 
     public void verifyPlutoResultsMatchesSongSectionOnResultsPage() {
-        WebElement textSong = wait.until(ExpectedConditions.presenceOfElementLocated(resultsPageForSongPluto));
+        WebElement textSong = findElement(resultsPageForSongPluto);
         Assert.assertTrue(textSong.isDisplayed(), "Results for Song 'Pluto' is not displayed");
     }
 
     public void verifyGravResultsMatchesArtistSectionOnResultsPage() {
-        WebElement artistCard = wait.until(ExpectedConditions.presenceOfElementLocated(resultDisplayedForArtistSection));
+        WebElement artistCard = findElement(resultDisplayedForArtistSection);
         Assert.assertTrue(artistCard.isDisplayed(), "Results for Song 'Grav' is not displayed");
     }
 
     public void verifyResultIsAnEmptyList() {
 
-        boolean songCard = wait.until(ExpectedConditions.invisibilityOfElementLocated(resultDisplayedForSongsSection));
+        boolean songCard = elementInvisibility(resultDisplayedForSongsSection);
         Assert.assertTrue(songCard);
-        boolean artistCard = wait.until(ExpectedConditions.invisibilityOfElementLocated(resultDisplayedForArtistSection));
+        boolean artistCard = elementInvisibility(resultDisplayedForArtistSection);
         Assert.assertTrue(artistCard);
-        boolean albumCard = wait.until(ExpectedConditions.invisibilityOfElementLocated(resultDisplayedForAlbumsSection));
+        boolean albumCard = elementInvisibility(resultDisplayedForAlbumsSection);
         Assert.assertTrue(albumCard);
     }
 
     public void verifyWhenEnteringCaseSensitiveDataShouldNotBeValid() {
-        WebElement songCard = wait.until(ExpectedConditions.visibilityOfElementLocated(resultDisplayedForSongsSection));
+        WebElement songCard = findElement(resultDisplayedForSongsSection);
         Assert.assertFalse(songCard.isDisplayed());
     }
 
     public void verifySongCardShouldBeEmpty(){
-        boolean songCard = wait.until(ExpectedConditions.invisibilityOfElementLocated(resultDisplayedForSongsSection));
+        boolean songCard = elementInvisibility(resultDisplayedForSongsSection);
         Assert.assertTrue(songCard);
     }
 }

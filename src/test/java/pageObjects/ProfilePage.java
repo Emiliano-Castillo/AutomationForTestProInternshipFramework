@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class ProfilePage extends BasePage{
@@ -26,37 +25,36 @@ public class ProfilePage extends BasePage{
     //////////////////METHODS\\\\\\\\\\\\\\\\\\\\\\\\\
 
     public ProfilePage clickAvatar (){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(avatarBtn)).click();
+        click(avatarBtn);
         return this;
     }
 
-    public ProfilePage enterCurrentPass (String password) {
-        WebElement curr = wait.until(ExpectedConditions.visibilityOfElementLocated(currentPassInput));
+    public void enterCurrentPass (String password) {
+        WebElement curr = findElement(currentPassInput);
         curr.clear();
         curr.sendKeys(password);
-        return this;
     }
 
     public ProfilePage enterName (String email) {
-        WebElement nameEmail = wait.until(ExpectedConditions.visibilityOfElementLocated(name));
+        WebElement nameEmail = findElement(name);
         nameEmail.clear();
         nameEmail.sendKeys(email);
         return this;
     }
 
     public ProfilePage enterEmail (String email) {
-        WebElement emailEmail = wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput));
+        WebElement emailEmail = findElement(emailInput);
         emailEmail.clear();
         emailEmail.sendKeys(email);
         return this;
     }
 
     public void enterNewPass (String newPassword) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(newPassInput)).sendKeys(newPassword);
+        findElement(newPassInput).sendKeys(newPassword);
     }
 
     public ProfilePage clickSaveBtn () {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(saveBtn)).click();
+        findElement(saveBtn).click();
         return this;
     }
     //This method will input current and new password in profile page
@@ -69,7 +67,7 @@ public class ProfilePage extends BasePage{
     /////////////////ASSERTIONS\\\\\\\\\\\\\\\\\\\\\\
 
     public void verifySuccessfulMessageUpdate () {
-        WebElement greenMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(updateProfileMessage));
+        WebElement greenMessage = findElement(updateProfileMessage);
         Assert.assertTrue(greenMessage.isDisplayed());
     }
 }
